@@ -1,27 +1,33 @@
 import math
 class Node:
+# to create node of given data
     def __init__(self,data):
         self.data = data
         self.next = None
 
-class Mystack(Node):
+class Mystack:
+# creatring stack as class
     def __init__(self):
+        # initializing heas as None
         self.head = None
+        # initilalizing size as 0
         self.sz = 0
-
+    # pushing x at the top most position of stack    
     def push(self,x):
         temp = Node(x)
         temp.next = self.head
         self.head = temp
         self.sz += 1
-
+    #it will return size of stack and not modifying stack
     def size(self):
         return self.sz
+    # it will return top most element of the stack without modification in it. 
     def peek(self):
         try:
             return self.head.data
         except:
             return "It can't be None" 
+    # it will pop out top most element of stack and will crerate new head and empty stack error also handlend here.         
     def pop(self):
         try:
             res = self.head.data
@@ -30,11 +36,13 @@ class Mystack(Node):
             return res
         except:
             return "it cannot br none"  
+    #it will return all element of the stack         
     def traverse(self):
         c = self.head
         while c!= None:
             print(c.data,end=' ')
             c = c.next   
+     # it will return boolean value.       
     def isempty(self):
         if self.head == None:
             return True
