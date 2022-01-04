@@ -1,0 +1,54 @@
+import math
+class Node:
+    def __init__(self,data):
+        self.data = data
+        self.next = None
+
+class Mystack(Node):
+    def __init__(self):
+        self.head = None
+        self.sz = 0
+
+    def push(self,x):
+        temp = Node(x)
+        temp.next = self.head
+        self.head = temp
+        self.sz += 1
+
+    def size(self):
+        return self.sz
+    def peek(self):
+        try:
+            return self.head.data
+        except:
+            return "It can't be None" 
+    def pop(self):
+        try:
+            res = self.head.data
+            self.head = self.head.next
+            self.sz -= 1
+            return res
+        except:
+            return "it cannot br none"  
+    def traverse(self):
+        c = self.head
+        while c!= None:
+            print(c.data,end=' ')
+            c = c.next   
+    def isempty(self):
+        if self.head == None:
+            return True
+        else:
+            return False                 
+m = Mystack()
+m.push(10)
+
+m.push(29)
+m.push(30)
+m.push(40)
+print(m.pop())
+print(m.size())
+print(m.traverse())
+print(type(m))
+print(m.isempty())
+
